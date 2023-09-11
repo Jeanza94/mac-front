@@ -1,3 +1,5 @@
+import { Button } from "./components/buttons"
+import { Input } from "./components/inputs"
 
 
 const App = () => {
@@ -18,30 +20,31 @@ const App = () => {
       </h3>
 
       <form className="flex gap-4">
-        <label className="flex flex-col">
+        <label className="flex flex-col gap-1">
           <span>Tipo de documento</span>
-          <input
+          <Input
             type="text"
             placeholder="cedula de ciudadania"
-            className="border-2 p-1 rounded-lg"
           />
         </label>
 
-        <label className="flex flex-col">
+        <label className="flex flex-col gap-1">
           <span>Número del documento</span>
-          <input 
+          <Input 
             type="number" 
             placeholder="934893730384"
           />
         </label>
 
-        <button>
-          buscar
-        </button>
+        <Button 
+          text="buscar"
+          title="Buscar persona"
+        />
 
-        <button>
-          busqueda avanzada
-        </button>
+        <Button 
+          text="busqueda avanzada"
+          title="Abrir opciones de busqueda avanzada"
+        />
       </form>
     </main>
   )
