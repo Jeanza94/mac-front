@@ -1,7 +1,5 @@
 import { FormScreenOne } from "./components/forms"
 
-
-
 const App = () => {
   return (
     <main className="p-4">
