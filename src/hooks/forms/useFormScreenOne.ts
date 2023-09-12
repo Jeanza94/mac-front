@@ -1,4 +1,8 @@
 import { useForm, SubmitHandler } from "react-hook-form"
+import { macApi } from "../../api"
+import { UserResponse } from "../../components/interfaces"
+import { useContext } from 'react';
+import { UserContext } from "../../context/users";
 
 interface FormData {
   documentType: string,
@@ -6,16 +10,27 @@ interface FormData {
 }
 
 export const useFormScreenOne = () => {
-
+  const { onOpenAdvancedSearch, setCurrentUser, onOpenUserForm } = useContext(UserContext)
   const {register, handleSubmit, formState: {errors}} = useForm<FormData>()
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log({data})
+  const onSubmit: SubmitHandler<FormData> = async({documentNumber, documentType}) => {
+    
+    const url = `/api/personas?document_type=${documentType}&document_number=${documentNumber}`
+
+    try {
+      const {data} = await macApi.get<UserResponse[]>(url)
+      if (data.length === 0) return 
+      setCurrentUser(data[0])
+      onOpenUserForm() 
+    } catch (error) {
+      console.log(error)
+    }
   } 
 
   return {
     errors,
     handleSubmit,
+    onOpenAdvancedSearch,
     onSubmit,
     register,
   }

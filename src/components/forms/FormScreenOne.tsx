@@ -2,15 +2,13 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons/faMagnifyin
 import { Button } from "../buttons"
 import { Input } from "../inputs"
 import { useFormScreenOne } from "../../hooks/forms"
-import { ErrorText } from "."
-import { useContext } from 'react';
-import { UserContext } from "../../context/users"
+import { ErrorText, documentChoices } from "."
 
 
 export const FormScreenOne = () => {
 
-  const {onOpenAdvancedSearch} = useContext(UserContext)
-  const { errors, handleSubmit, onSubmit, register } = useFormScreenOne()
+  
+  const { errors, handleSubmit, onSubmit, register, onOpenAdvancedSearch } = useFormScreenOne()
 
 
   return (
@@ -20,19 +18,25 @@ export const FormScreenOne = () => {
     >
       <label className="flex flex-col gap-1">
         <span>Tipo de documento</span>
-        <Input
-          type="text"
-          placeholder="cedula de ciudadania"
+        
+        <select
+          defaultValue='1'
+          className="border-2 px-3 py-2 rounded-lg focus:outline-none focus:shadow-primary"
           {
-          ...register('documentType', {
-            required: { value: true, message: "Campo obligatorio" },
-            minLength: { value: 3, message: "Minimo de caracteres es 3" }
-          })
+          ...register('documentType')
           }
-        />
-        {
-          errors.documentType?.message && <ErrorText text={errors.documentType.message} />
-        }
+        >
+          {
+            documentChoices.map(type => (
+              <option
+                value={type.value}
+                key={type.id}
+              >
+                {type.label}
+              </option>
+            ))
+          }
+        </select>
       </label>
 
       <label className="flex flex-col gap-1">
@@ -48,7 +52,7 @@ export const FormScreenOne = () => {
           }
         />
         {
-          errors.documentNumber?.message && <ErrorText text={errors.documentNumber.message}/>
+          errors.documentNumber?.message && <ErrorText text={errors.documentNumber.message} />
         }
       </label>
 

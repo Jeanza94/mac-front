@@ -1,11 +1,15 @@
 
 export interface User {
-  firstName: string,
-  middleName: string,
-  surName: string,
-  lastName: string,
+  firstname: string,
+  middle_name: string,
+  surname: string,
+  lastname: string,
   birth: Date,
   country: string,
   gender: string,
   status: string
+}
+
+export interface UserResponse extends User {
+  id: number
 }

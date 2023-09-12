@@ -6,8 +6,8 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-      <UserProvider>
-        <App />
-      </UserProvider>
+    <UserProvider>
+      <App />
+    </UserProvider>
   </React.StrictMode>,
 )

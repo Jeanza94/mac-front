@@ -7,31 +7,38 @@ interface DataUserForm {
   placeholder:string
 }
 
-type UserFormData = "firstName" |"middleName" |"surName" |"lastName" |"birth" |"country" |"gender" |"status"
+type UserFormData = "firstname" |"middle_name" |"surname" |"lastname" |"birth" |"country" |"gender" |"status"
+
+export interface GenericChoices {
+  id: string,
+  value: string,
+  label: string
+}
+
 
 export const dataUserForm: DataUserForm[] = [
   {
     id: uuid(),
     label: "primer nombre",
-    name: "firstName",
+    name: "firstname",
     placeholder: "pepito"
   },
   {
     id: uuid(),
     label: "segundo nombre",
-    name: "middleName",
+    name: "middle_name",
     placeholder: "alfredo"
   },
   {
     id: uuid(),
     label: "primer apellido",
-    name: "surName",
+    name: "surname",
     placeholder: "hernandez"
   },
   {
     id: uuid(),
     label: "segundo apellido",
-    name: "lastName",
+    name: "lastname",
     placeholder: "ricotta"
   },
   {
@@ -57,5 +64,80 @@ export const dataUserForm: DataUserForm[] = [
     label: "estado civíl",
     name: "status",
     placeholder: "soltero"
+  },
+]
+
+
+export const documentChoices: GenericChoices[] = [
+  {
+    id: uuid(),
+    label: 'Cedula',
+    value: '1'
+  },
+  {
+    id: uuid(),
+    label: 'Pasaporte',
+    value: '2'
+  },
+  {
+    id: uuid(),
+    label: 'Visa',
+    value: '3'
+  },
+  {
+    id: uuid(),
+    label: 'Otro',
+    value: '4'
+  },
+] 
+
+export const genderChoices: GenericChoices[] = [
+  {
+    id: uuid(),
+    label: 'Masculino',
+    value: 'M'
+  },
+  {
+    id: uuid(),
+    label: 'Femenino',
+    value: 'F'
+  },
+  {
+    id: uuid(),
+    label: 'Otro',
+    value: 'O'
+  },
+]
+
+export const statusChoices: GenericChoices[] = [
+  {
+    id: uuid(),
+    label: 'Soltero',
+    value: '1'
+  },
+  {
+    id: uuid(),
+    label: 'Casado',
+    value: '2'
+  },
+  {
+    id: uuid(),
+    label: 'Unión libre',
+    value: '3'
+  },
+  {
+    id: uuid(),
+    label: 'Separado',
+    value: '4'
+  },
+  {
+    id: uuid(),
+    label: 'Divorciado',
+    value: '5'
+  },
+  {
+    id: uuid(),
+    label: 'Viudo',
+    value: '6'
   },
 ]

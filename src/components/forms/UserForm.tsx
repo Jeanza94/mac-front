@@ -9,7 +9,7 @@ import { UserContext } from "../../context/users"
 
 export const UserForm = () => {
 
-  const { onCloseUserForm } = useContext(UserContext)
+  const { onCloseUserForm, currentUser } = useContext(UserContext)
   const { errors, register, onSubmit, handleSubmit } = useUserForm()
 
   return (
@@ -37,6 +37,7 @@ export const UserForm = () => {
                   minLength: { value: 3, message: "Minimo 3 caracteres" }
                 })
                 }
+                defaultValue={currentUser![info.name] as any}
               />
               {
                 errors[info.name]?.message && <ErrorText text={ errors[info.name]!.message!} />
