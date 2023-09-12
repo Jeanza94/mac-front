@@ -8,6 +8,10 @@ export default {
     extend: {
       boxShadow: {
         primary: "0 0 2px 1px theme(colors.sky.300)"
+      },
+      screens: {
+        mobile: "320px",
+        tablet: "600px"
       }
     },
   },

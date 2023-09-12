@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Modal } from "./components/modals"
 import { UserContext } from "./context/users"
 import { AdvancedSearchComponent, SimpleSearchComponent } from './components/main-components'
+import { UserForm } from './components/forms'
 
 const App = () => {
 
@@ -16,6 +17,8 @@ const App = () => {
       >
         <AdvancedSearchComponent />
       </Modal>
+
+      <UserForm />
 
     </main>
   )
