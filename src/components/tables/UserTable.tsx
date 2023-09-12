@@ -14,7 +14,7 @@ export const UserTable = () => {
           <th className="border-e-2 p-2">Número de documento</th>
           <th className="border-e-2 p-2">Primer nombre</th>
           <th className="border-e-2 p-2">Primer apellido</th>
-          <th className="border-e-2 p-2">Acción</th>
+          <th className="p-2">Acción</th>
         </tr>
       </thead>
 
@@ -24,7 +24,7 @@ export const UserTable = () => {
           <td className="text-center border-e-2 p-1">1231414</td>
           <td className="text-center border-e-2 p-1">jean</td>
           <td className="text-center border-e-2 p-1">zapata</td>
-          <td className="border-e-2 flex justify-center items-center gap-2">
+          <td className="flex justify-center items-center gap-2">
               <IconButton
                 icon={faPenToSquare}
                 title="Editar usuario"

@@ -17,11 +17,16 @@ export const UserProvider: FC<PropsWithChildren> = ({children}) => {
     dispatch({type: "setIsOpenAdvancedSearch", payload: true})
   }
 
+  const onCloseAdvancedSearch = () => {
+    dispatch({type: "setIsOpenAdvancedSearch", payload: false})
+  }
+
   return (
     <UserContext.Provider
       value={{
         ...state,
-        onOpenAdvancedSearch
+        onOpenAdvancedSearch,
+        onCloseAdvancedSearch
       }}
     >
       {children}

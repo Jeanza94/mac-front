@@ -3,6 +3,7 @@ import { createContext } from "react";
 interface UserContextProps {
   isOpenAdvancedSearch: boolean,
   onOpenAdvancedSearch: () => void
+  onCloseAdvancedSearch: () => void
 }
 
 
