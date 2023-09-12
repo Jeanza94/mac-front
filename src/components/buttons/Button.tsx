@@ -31,7 +31,7 @@ export const Button: FC<PropsButton> = ({
       type={type}
       className={twMerge(`
         border-2 h-10  px-4 rounded-lg transition-colors duration-300 ease-in-out flex
-        items-center gap-4 group focus:outline-none
+        items-center gap-4 group focus:outline-none active:bg-black
       `, className)}
     >
       <span

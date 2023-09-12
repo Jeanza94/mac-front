@@ -1,7 +1,11 @@
+import { useUserTable } from "../../hooks/tables"
 import { IconButton } from "../buttons"
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export const UserTable = () => {
+
+  const { editUser } = useUserTable()
+
   return (
     <table
       className="border-2 w-full rounded-xl"
@@ -28,6 +32,7 @@ export const UserTable = () => {
               <IconButton
                 icon={faPenToSquare}
                 title="Editar usuario"
+                onClick={editUser}
               />
               
               <IconButton

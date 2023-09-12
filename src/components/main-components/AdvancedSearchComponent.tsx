@@ -7,7 +7,7 @@ import { useAdvancedSearchComponent } from "../../hooks/main-components"
 
 export const AdvancedSearchComponent = () => {
 
-  const {onCloseAdvancedSearch} = useAdvancedSearchComponent()
+  const { onCloseAdvancedSearch } = useAdvancedSearchComponent()
 
   return (
     <section className="flex flex-col gap-2 p-4">

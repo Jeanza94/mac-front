@@ -6,6 +6,6 @@ export const useAdvancedSearchComponent = () => {
   const {onCloseAdvancedSearch} = useContext(UserContext)
 
   return {
-    onCloseAdvancedSearch
+    onCloseAdvancedSearch,
   }
 }

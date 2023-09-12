@@ -6,10 +6,10 @@ import { UserForm } from './components/forms'
 
 const App = () => {
 
-  const { isOpenAdvancedSearch } = useContext(UserContext)
+  const { isOpenAdvancedSearch, isOpenUserForm } = useContext(UserContext)
 
   return (
-    <main className="p-4">
+    <main className="p-4 flex flex-col gap-4">
       
       <SimpleSearchComponent />
       <Modal
@@ -17,8 +17,13 @@ const App = () => {
       >
         <AdvancedSearchComponent />
       </Modal>
+      <hr />
 
-      <UserForm />
+      {
+        isOpenUserForm && (
+          <UserForm />
+        )
+      }
 
     </main>
   )

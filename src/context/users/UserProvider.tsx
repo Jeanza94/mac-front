@@ -2,11 +2,13 @@ import { FC, PropsWithChildren, useReducer } from "react"
 import { UserContext, userReducer } from "."
 
 export interface UserState {
-  isOpenAdvancedSearch: boolean
+  isOpenAdvancedSearch: boolean,
+  isOpenUserForm: boolean
 }
 
 const INITIAL_STATE: UserState = {
-  isOpenAdvancedSearch: false
+  isOpenAdvancedSearch: false,
+  isOpenUserForm: false
 } 
 
 export const UserProvider: FC<PropsWithChildren> = ({children}) => {
@@ -20,13 +22,22 @@ export const UserProvider: FC<PropsWithChildren> = ({children}) => {
   const onCloseAdvancedSearch = () => {
     dispatch({type: "setIsOpenAdvancedSearch", payload: false})
   }
+  
+  const onOpenUserForm = () => {
+    dispatch({type: "setIsOpenUserForm", payload: true})
+  }
+  const onCloseUserForm = () => {
+    dispatch({type: "setIsOpenUserForm", payload: false})
+  }
 
   return (
     <UserContext.Provider
       value={{
         ...state,
+        onCloseAdvancedSearch,
+        onCloseUserForm,
         onOpenAdvancedSearch,
-        onCloseAdvancedSearch
+        onOpenUserForm
       }}
     >
       {children}
