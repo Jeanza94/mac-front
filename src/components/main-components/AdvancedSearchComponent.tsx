@@ -1,14 +1,14 @@
-import { faBroom, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faBroom, faSpinner, faUsersSlash, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { Button } from "../buttons"
 import { TitleCustom } from "../content"
 import { Input } from "../inputs"
 import { UserTable } from "../tables"
 import { useAdvancedSearchComponent } from "../../hooks/main-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const AdvancedSearchComponent = () => {
 
-  const { onCloseAdvancedSearch } = useAdvancedSearchComponent()
-
+  const { onCloseAdvancedSearch, usersAdvanced, onChange, search, onKeyDown, isFetchingUsers } = useAdvancedSearchComponent()
   return (
     <section className="flex flex-col gap-2 p-4">
       <TitleCustom
@@ -19,10 +19,28 @@ export const AdvancedSearchComponent = () => {
           <Input
             type="text"
             placeholder="Buscar"
+            onChange={onChange}
+            value={search}
+            onKeyDown={onKeyDown}
           />
         </label>
 
-        <UserTable />
+        {
+          isFetchingUsers
+            ? <FontAwesomeIcon icon={faSpinner} className="text-blue-950 animate-spin" />
+            : usersAdvanced.length === 0
+              ? (
+                <div className="flex gap-4 items-center shadow-sm shadow-blue-950 h-40 justify-center">
+                  <FontAwesomeIcon
+                    icon={faUsersSlash}
+                    className="h-20 w-20 text-blue-950"
+                  />
+                  <span className="text-blue-950 font-bold text-3xl">No existen usuarios</span>
+                </div>
+              )
+              : <UserTable />
+        }
+
 
         <div className="self-end flex gap-2">
           <Button

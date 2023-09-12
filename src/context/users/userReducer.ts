@@ -4,7 +4,8 @@ import { UserResponse } from "../../components/interfaces";
 type UserAction = 
 | {type: "setIsOpenAdvancedSearch", payload: boolean}
 | {type: "setIsOpenUserForm", payload: boolean}
-| {type: "serCurrentUser", payload: UserResponse | undefined}
+| {type: "setCurrentUser", payload: UserResponse | undefined}
+| {type: "setUsersAdvanced", payload: UserResponse[]}
 
 export const userReducer = (state: UserState, {payload, type}: UserAction): UserState => {
   switch (type) {
@@ -18,10 +19,15 @@ export const userReducer = (state: UserState, {payload, type}: UserAction): User
         ...state,
         isOpenUserForm: payload
       }
-    case "serCurrentUser":
+    case "setCurrentUser":
       return {
         ...state,
         currentUser: payload
+      }
+      case "setUsersAdvanced":
+      return {
+        ...state,
+        usersAdvanced: payload
       }
     default:
       return state

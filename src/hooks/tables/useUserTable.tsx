@@ -3,13 +3,14 @@ import { UserContext } from '../../context/users';
 
 export const useUserTable = () => {
 
-  const { onCloseAdvancedSearch, onOpenUserForm } = useContext(UserContext)
+  const { onCloseAdvancedSearch, onOpenUserForm, usersAdvanced } = useContext(UserContext)
   const editUser = () => {
     onCloseAdvancedSearch()
     onOpenUserForm()
   }
 
   return {
-    editUser
+    editUser,
+    usersAdvanced
   }
 }

@@ -5,11 +5,13 @@ interface UserContextProps {
   isOpenAdvancedSearch: boolean,
   isOpenUserForm: boolean,
   currentUser?: UserResponse,
+  usersAdvanced: UserResponse[],
   onCloseAdvancedSearch: () => void,
   onCloseUserForm: () => void,
   onOpenAdvancedSearch: () => void,
   onOpenUserForm: () => void,
-  setCurrentUser: (user: UserResponse | undefined) => void
+  setCurrentUser: (user: UserResponse | undefined) => void,
+  setUsersAdvanced: (users: UserResponse[]) => void
 }
 
 

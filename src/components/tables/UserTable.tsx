@@ -4,7 +4,8 @@ import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export const UserTable = () => {
 
-  const { editUser } = useUserTable()
+  const { editUser, usersAdvanced } = useUserTable()
+
 
   return (
     <table
@@ -23,26 +24,30 @@ export const UserTable = () => {
       </thead>
 
       <tbody>
-        <tr>
-          <td className="text-center border-e-2 p-1">cedula</td>
-          <td className="text-center border-e-2 p-1">1231414</td>
-          <td className="text-center border-e-2 p-1">jean</td>
-          <td className="text-center border-e-2 p-1">zapata</td>
-          <td className="flex justify-center items-center gap-2">
-              <IconButton
-                icon={faPenToSquare}
-                title="Editar usuario"
-                onClick={editUser}
-              />
-              
-              <IconButton
-                icon={faTrash}
-                title="Eliminar usuario"
-                className="bg-red-900 hover:bg-red-600"
-              />
-            
-          </td>
-        </tr>
+        {
+          usersAdvanced.map(user => (
+            <tr key={user.id}>
+              <td className="text-center border-e-2 border-b-2 p-1">{user.document_type}</td>
+              <td className="text-center border-e-2 border-b-2 p-1">{user.document_number}</td>
+              <td className="text-center border-e-2 border-b-2 p-1">{user.firstname}</td>
+              <td className="text-center border-e-2 border-b-2 p-1">{user.surname}</td>
+              <td className="flex justify-center items-center gap-2 border-b-2">
+                <IconButton
+                  icon={faPenToSquare}
+                  title={`Editar usuario ${user.firstname} ${user.surname}`}
+                  onClick={editUser}
+                />
+
+                <IconButton
+                  icon={faTrash}
+                  title={`Eliminar usuario ${user.firstname} ${user.surname}`}
+                  className="bg-red-900 hover:bg-red-600"
+                />
+
+              </td>
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   )

@@ -6,11 +6,13 @@ export interface UserState {
   currentUser?: UserResponse,
   isOpenAdvancedSearch: boolean,
   isOpenUserForm: boolean,
+  usersAdvanced: UserResponse[]
 }
 
 const INITIAL_STATE: UserState = {
   isOpenAdvancedSearch: false,
-  isOpenUserForm: false
+  isOpenUserForm: false,
+  usersAdvanced: []
 } 
 
 export const UserProvider: FC<PropsWithChildren> = ({children}) => {
@@ -34,7 +36,11 @@ export const UserProvider: FC<PropsWithChildren> = ({children}) => {
   }
 
   const setCurrentUser = (user: UserResponse | undefined) => {
-    dispatch({type: "serCurrentUser", payload: user})
+    dispatch({type: "setCurrentUser", payload: user})
+  }
+  
+  const setUsersAdvanced = (users: UserResponse[]) => {
+    dispatch({type: "setUsersAdvanced", payload: users})
   }
 
   return (
@@ -45,7 +51,8 @@ export const UserProvider: FC<PropsWithChildren> = ({children}) => {
         onCloseUserForm,
         onOpenAdvancedSearch,
         onOpenUserForm,
-        setCurrentUser
+        setCurrentUser,
+        setUsersAdvanced
       }}
     >
       {children}

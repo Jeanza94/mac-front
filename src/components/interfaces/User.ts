@@ -11,5 +11,7 @@ export interface User {
 }
 
 export interface UserResponse extends User {
-  id: number
+  id: number,
+  document_type: string,
+  document_number: number
 }
