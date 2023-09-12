@@ -8,7 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const AdvancedSearchComponent = () => {
 
-  const { onCloseAdvancedSearch, usersAdvanced, onChange, search, onKeyDown, isFetchingUsers } = useAdvancedSearchComponent()
+  const { 
+    onCloseAdvancedSearch, usersAdvanced, onChange, search, onKeyDown, isFetchingUsers
+  } = useAdvancedSearchComponent()
   return (
     <section className="flex flex-col gap-2 p-4">
       <TitleCustom

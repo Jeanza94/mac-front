@@ -8,7 +8,7 @@ import { ErrorText, documentChoices } from "."
 export const FormScreenOne = () => {
 
   
-  const { errors, handleSubmit, onSubmit, register, onOpenAdvancedSearch } = useFormScreenOne()
+  const { errors, handleSubmit, onSubmit, register, openAdvacedSearchAndCloseUserForm } = useFormScreenOne()
 
 
   return (
@@ -73,7 +73,7 @@ export const FormScreenOne = () => {
         spanClassName="text-blue-600 font-medium group-hover:text-white group-focus:text-white"
         icon={faMagnifyingGlass}
         iconClassName="text-sm text-blue-600 group-hover:text-white group-focus:text-white"
-        onClick={onOpenAdvancedSearch}
+        onClick={openAdvacedSearchAndCloseUserForm}
       />
     </form>
   )

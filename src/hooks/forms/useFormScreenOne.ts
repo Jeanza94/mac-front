@@ -10,7 +10,7 @@ interface FormData {
 }
 
 export const useFormScreenOne = () => {
-  const { onOpenAdvancedSearch, setCurrentUser, onOpenUserForm } = useContext(UserContext)
+  const { onOpenAdvancedSearch, setCurrentUser, onOpenUserForm, onCloseUserForm } = useContext(UserContext)
   const {register, handleSubmit, formState: {errors}} = useForm<FormData>()
 
   const onSubmit: SubmitHandler<FormData> = async({documentNumber, documentType}) => {
@@ -27,10 +27,15 @@ export const useFormScreenOne = () => {
     }
   } 
 
+  const openAdvacedSearchAndCloseUserForm = () => {
+    onOpenAdvancedSearch()
+    onCloseUserForm()
+  }
+
   return {
     errors,
     handleSubmit,
-    onOpenAdvancedSearch,
+    openAdvacedSearchAndCloseUserForm,
     onSubmit,
     register,
   }
