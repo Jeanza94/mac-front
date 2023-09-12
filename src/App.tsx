@@ -1,6 +1,15 @@
+import { useContext } from 'react'
 import { FormScreenOne } from "./components/forms"
+import { Modal } from "./components/modals"
+import { UserContext } from "./context/users"
+import { TitleCustom } from './components/content'
+import { Input } from './components/inputs'
+import { UserTable } from './components/tables'
 
 const App = () => {
+
+  const { isOpenAdvancedSearch } = useContext(UserContext)
+
   return (
     <main className="p-4">
       <h1
@@ -8,17 +17,32 @@ const App = () => {
       >
         Administrador de personas
       </h1>
-      <h3
-        className={`
-          capitalize text-white font-bold ps-4 py-2 rounded-s-full rounded-e-full 
-          bg-gradient-to-r from-green-500 via-blue-800 to-sky-400
-        `}
-      >
-        información
-      </h3>
+
+      <TitleCustom
+        text="información"
+      />
 
       <FormScreenOne />
-      
+      <Modal
+        isOpen={isOpenAdvancedSearch}
+      >
+        <div className="flex flex-col gap-2 p-4">
+          <TitleCustom
+            text="búsqueda avanzada"
+          />
+          <div className="bg-white p-4 rounded-lg flex flex-col gap-2">
+            <label>
+              <Input
+                type="text"
+                placeholder="Buscar"
+              />
+            </label>
+
+            <UserTable />
+          </div>
+        </div>
+      </Modal>
+
     </main>
   )
 }

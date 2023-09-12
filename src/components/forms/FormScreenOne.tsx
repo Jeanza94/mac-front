@@ -3,11 +3,15 @@ import { Button } from "../buttons"
 import { Input } from "../inputs"
 import { useFormScreenOne } from "../../hooks/forms"
 import { ErrorText } from "."
+import { useContext } from 'react';
+import { UserContext } from "../../context/users"
 
 
 export const FormScreenOne = () => {
 
+  const {onOpenAdvancedSearch} = useContext(UserContext)
   const { errors, handleSubmit, onSubmit, register } = useFormScreenOne()
+
 
   return (
     <form
@@ -65,6 +69,7 @@ export const FormScreenOne = () => {
         spanClassName="text-blue-600 font-medium group-hover:text-white group-focus:text-white"
         icon={faMagnifyingGlass}
         iconClassName="text-sm text-blue-600 group-hover:text-white group-focus:text-white"
+        onClick={onOpenAdvancedSearch}
       />
     </form>
   )

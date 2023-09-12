@@ -9,7 +9,7 @@ const INITIAL_STATE: UserState = {
   isOpenAdvancedSearch: false
 } 
 
-export const UserContextProvider: FC<PropsWithChildren> = ({children}) => {
+export const UserProvider: FC<PropsWithChildren> = ({children}) => {
   
   const [state, dispatch] = useReducer(userReducer, INITIAL_STATE)
   
