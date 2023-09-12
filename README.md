@@ -1,27 +1,15 @@
-# React + TypeScript + Vite
+<p align="center">
+  <a href="https://mac-front.netlify.app/" target="blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE5Fszon35yIb9ZqN5TqCwOhh9VDD8ZCPcTg&usqp=CAU" width="200" alt="React logo" /></a>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Mac-front
 
-Currently, two official plugins are available:
+1. Clonar proyecto
+2. ```yarn install```
+3. Asegurarse de correr primero el mac-backend
+4. Levantar modo de desarrollo ```yarn start:dev```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Producción
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+La página se encuentra desplegada en netlify en el siguiente link: https://mac-front.netlify.app/
+y ya esta conectada con el backend de django.
